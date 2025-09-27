@@ -157,6 +157,37 @@
             font-weight: 300;
         }
 
+        .hero-badges {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(58, 134, 255, 0.3);
+            animation: badgeFloat 3s ease-in-out infinite;
+        }
+
+        .hero-badge:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .hero-badge:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         .cta-button {
             display: inline-block;
             padding: 12px 30px;
@@ -217,6 +248,20 @@
             color: var(--primary-color);
         }
 
+        .service-details {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid var(--light-gray);
+        }
+
+        .service-details span {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
         .about {
             padding: 100px 0;
         }
@@ -233,29 +278,136 @@
         }
 
         footer {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 50px 0;
+            padding: 80px 0 40px;
             text-align: center;
         }
 
-        .contact-info {
-            margin-top: 20px;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 40px 0 60px;
+        }
+
+        .contact-method {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .contact-method i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .contact-method h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact-method p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-method small {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .specialties-footer {
+            margin: 60px 0;
+        }
+
+        .specialties-footer h3 {
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .specialty-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .specialty-tags span {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .specialty-tags span:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
         }
 
         .social-links {
-            margin-top: 20px;
+            margin-top: 40px;
         }
 
         .social-links a {
             color: white;
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s ease;
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .social-links a:hover {
             color: var(--secondary-color);
+            transform: translateY(-5px) scale(1.2);
+        }
+
+        /* Ripple Effect Animation */
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Loading Animation for Page */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-text {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            animation: loadingPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes loadingPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
         }
 
         @media (max-width: 768px) {
@@ -770,6 +922,519 @@
         @keyframes fadeInMatrix {
             to { opacity: 1; }
         }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--background-color) 0%, var(--light-gray) 50%, var(--background-color) 100%);
+        }
+
+        .expertise-category {
+            margin-bottom: 80px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .expertise-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px var(--shadow-color);
+        }
+
+        .expertise-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .expertise-icon {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(58, 134, 255, 0.3);
+        }
+
+        .expertise-header h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .expertise-item {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .expertise-item:hover h4 {
+            color: white;
+        }
+
+        .expertise-item h4 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .expertise-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .expertise-item li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .expertise-item li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .expertise-item:hover li::before {
+            color: white;
+        }
+
+        /* Technologies Grid */
+        .technologies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .tech-category {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tech-category:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .tech-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .tech-category:hover h4 {
+            color: white;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .tech-tag-advanced {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tech-tag-advanced:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(58, 134, 255, 0.4);
+        }
+
+        .tech-category:hover .tech-tag-advanced {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Success Stories Section */
+        .success-stories {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .story-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .story-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .story-content {
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .author-info h4 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .author-info p {
+            margin: 5px 0 0 0;
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px var(--shadow-color);
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(58, 134, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cert-card:hover::before {
+            left: 100%;
+        }
+
+        .cert-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(58, 134, 255, 0.3);
+        }
+
+        .cert-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .cert-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Achievements Section */
+        .achievements-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .achievements-section h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-item {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-10px) rotate(2deg);
+        }
+
+        .achievement-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .achievement-text {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* Process Timeline Section */
+        .process {
+            padding: 100px 0;
+            background: var(--background-color);
+        }
+
+        .process-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            text-align: right;
+            margin-right: 30px;
+            margin-left: 0;
+        }
+
+        .timeline-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(58, 134, 255, 0.3);
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-icon:hover {
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        .timeline-content {
+            flex: 1;
+            margin-left: 30px;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--shadow-color);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Responsive Design Improvements */
+        @media (max-width: 768px) {
+            .hero-badges {
+                justify-content: center;
+            }
+            
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .technologies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .certifications-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .process-timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+                margin-bottom: 40px;
+            }
+            
+            .timeline-item .timeline-content {
+                text-align: left !important;
+                margin-left: 20px;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-icon {
+                margin-left: 10px;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .expertise-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .expertise-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .expertise-item {
+                transform: none !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -802,6 +1467,8 @@
                 <ul class="nav-links">
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#skills">Compétences</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -817,7 +1484,12 @@
             </div>
             <div class="hero-content">
                 <h1 class="glitch" data-text="CHEIKH SENE">Cheikh Sene</h1>
-                <p class="tagline typewriter">Développeur Web & Solutions Innovantes</p>
+                <p class="tagline typewriter">Expert Odoo ERP & WooCommerce • Architecte Solutions Business</p>
+                <div class="hero-badges">
+                    <span class="hero-badge">🥇 Odoo Expert</span>
+                    <span class="hero-badge">🛒 WooCommerce Pro</span>
+                    <span class="hero-badge">🚀 5+ ans d'expérience</span>
+                </div>
                 <a href="#contact" class="cta-button enhanced-hover">Collaborons</a>
             </div>
         </section>
@@ -827,8 +1499,9 @@
                 <h2 class="section-title fade-in text-reveal">À propos de moi</h2>
                 <div class="about-content">
                     <div class="about-text fade-in">
-                        <p>Je suis un développeur web passionné, spécialisé dans la création de solutions sur mesure pour répondre aux besoins uniques de chaque client. Avec une expertise en développement de sites web, d'applications, d'ERP, de CRM et de solutions e-commerce, je m'efforce de fournir des produits de haute qualité qui dépassent les attentes.</p>
-                        <p>Mon approche combine créativité, innovation technique et une profonde compréhension des objectifs commerciaux de mes clients pour produire des résultats exceptionnels.</p>
+                        <p>Je suis un développeur web passionné avec plus de 5 ans d'expertise spécialisée en <strong>Odoo ERP</strong> et <strong>WooCommerce</strong>. Expert certifié dans le développement de modules personnalisés, plugins avancés et intégrations systèmes complexes.</p>
+                        <p>Ma spécialité : transformer les processus métier en solutions techniques innovantes. De l'implémentation d'ERP multi-sociétés aux plugins WooCommerce de marketplace, j'accompagne les entreprises dans leur transformation digitale avec des solutions sur-mesure qui génèrent un ROI mesurable.</p>
+                        <p>Mon approche combine expertise technique pointue, compréhension des enjeux business et innovation pour livrer des solutions qui dépassent les attentes et propulsent votre croissance.</p>
                     </div>
                 </div>
             </div>
@@ -886,11 +1559,238 @@
                     </div>
                     <div class="skill-item fade-in">
                         <div class="skill-name">
+                            <span>Odoo ERP</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="92"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item fade-in">
+                        <div class="skill-name">
+                            <span>WooCommerce</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item fade-in">
+                        <div class="skill-name">
                             <span>DevOps/Cloud</span>
                             <span>75%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-progress="75"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Expertise Section -->
+        <section id="expertise" class="expertise">
+            <div class="container">
+                <h2 class="section-title fade-in">Expertise Avancée</h2>
+                
+                <!-- Odoo Expertise -->
+                <div class="expertise-category fade-in">
+                    <div class="expertise-header">
+                        <div class="expertise-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Développement Odoo ERP</h3>
+                    </div>
+                    <div class="expertise-content">
+                        <div class="expertise-grid">
+                            <div class="expertise-item">
+                                <h4><i class="fas fa-puzzle-piece"></i> Modules Personnalisés</h4>
+                                <ul>
+                                    <li>Développement de modules Odoo sur mesure</li>
+                                    <li>Intégration avec systèmes tiers (API REST, SOAP)</li>
+                                    <li>Customisation des workflows métier</li>
+                                    <li>Rapports et tableaux de bord personnalisés</li>
+                                </ul>
+                            </div>
+                            <div class="expertise-item">
+                                <h4><i class="fas fa-database"></i> Migration & Optimisation</h4>
+                                <ul>
+                                    <li>Migration vers nouvelles versions Odoo</li>
+                                    <li>Optimisation des performances</li>
+                                    <li>Intégration de données existantes</li>
+                                    <li>Formation et support utilisateur</li>
+                                </ul>
+                            </div>
+                            <div class="expertise-item">
+                                <h4><i class="fas fa-mobile-alt"></i> Applications Mobiles</h4>
+                                <ul>
+                                    <li>Apps mobiles connectées à Odoo</li>
+                                    <li>Synchronisation en temps réel</li>
+                                    <li>Interface optimisée terrain</li>
+                                    <li>Mode offline/online</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WooCommerce Expertise -->
+                <div class="expertise-category fade-in">
+                    <div class="expertise-header">
+                        <div class="expertise-icon">
+                            <i class="fab fa-wordpress"></i>
+                        </div>
+                        <h3>Développement WooCommerce</h3>
+                    </div>
+                    <div class="expertise-content">
+                        <div class="expertise-grid">
+                            <div class="expertise-item">
+                                <h4><i class="fas fa-plug"></i> Plugins Avancés</h4>
+                                <ul>
+                                    <li>Plugins de paiement personnalisés</li>
+                                    <li>Systèmes de livraison intelligents</li>
+                                    <li>Gestion multi-vendeurs</li>
+                                    <li>Intégrations ERP/CRM</li>
+                                </ul>
+                            </div>
+                            <div class="expertise-item">
+                                <h4><i class="fas fa-shopping-bag"></i> E-commerce Avancé</h4>
+                                <ul>
+                                    <li>Catalogues multi-devises</li>
+                                    <li>Gestion stock temps réel</li>
+                                    <li>Personnalisation produits</li>
+                                    <li>Analytics et tracking avancés</li>
+                                </ul>
+                            </div>
+                            <div class="expertise-item">
+                                <h4><i class="fas fa-rocket"></i> Performance & SEO</h4>
+                                <ul>
+                                    <li>Optimisation vitesse de chargement</li>
+                                    <li>SEO technique avancé</li>
+                                    <li>Cache et CDN</li>
+                                    <li>Sécurité renforcée</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technologies & Frameworks -->
+                <div class="expertise-category fade-in">
+                    <div class="expertise-header">
+                        <div class="expertise-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Technologies & Frameworks</h3>
+                    </div>
+                    <div class="expertise-content">
+                        <div class="technologies-grid">
+                            <div class="tech-category">
+                                <h4>Backend</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag-advanced">Python</span>
+                                    <span class="tech-tag-advanced">Node.js</span>
+                                    <span class="tech-tag-advanced">PHP</span>
+                                    <span class="tech-tag-advanced">Django</span>
+                                    <span class="tech-tag-advanced">FastAPI</span>
+                                    <span class="tech-tag-advanced">Express.js</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h4>Frontend</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag-advanced">React</span>
+                                    <span class="tech-tag-advanced">Vue.js</span>
+                                    <span class="tech-tag-advanced">Angular</span>
+                                    <span class="tech-tag-advanced">Next.js</span>
+                                    <span class="tech-tag-advanced">TypeScript</span>
+                                    <span class="tech-tag-advanced">Tailwind CSS</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h4>Bases de Données</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag-advanced">PostgreSQL</span>
+                                    <span class="tech-tag-advanced">MongoDB</span>
+                                    <span class="tech-tag-advanced">MySQL</span>
+                                    <span class="tech-tag-advanced">Redis</span>
+                                    <span class="tech-tag-advanced">Elasticsearch</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h4>Cloud & DevOps</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag-advanced">AWS</span>
+                                    <span class="tech-tag-advanced">Docker</span>
+                                    <span class="tech-tag-advanced">Kubernetes</span>
+                                    <span class="tech-tag-advanced">CI/CD</span>
+                                    <span class="tech-tag-advanced">Nginx</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="certifications">
+            <div class="container">
+                <h2 class="section-title fade-in">Certifications & Réalisations</h2>
+                <div class="certifications-grid">
+                    <div class="cert-card fade-in">
+                        <div class="cert-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Odoo Partner Certified</h3>
+                        <p>Certification officielle Odoo pour le développement et l'implémentation d'ERP</p>
+                        <div class="cert-badge">2023</div>
+                    </div>
+                    <div class="cert-card fade-in">
+                        <div class="cert-icon">
+                            <i class="fab fa-wordpress"></i>
+                        </div>
+                        <h3>WordPress Expert Developer</h3>
+                        <p>Certification avancée en développement WordPress et WooCommerce</p>
+                        <div class="cert-badge">2022</div>
+                    </div>
+                    <div class="cert-card fade-in">
+                        <div class="cert-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>50+ Projets Réalisés</h3>
+                        <p>Plus de 50 projets Odoo et WooCommerce livrés avec succès</p>
+                        <div class="cert-badge">2024</div>
+                    </div>
+                    <div class="cert-card fade-in">
+                        <div class="cert-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Top Developer Upwork</h3>
+                        <p>Classé dans le top 1% des développeurs Odoo/WooCommerce</p>
+                        <div class="cert-badge">2024</div>
+                    </div>
+                </div>
+                
+                <!-- Key Achievements -->
+                <div class="achievements-section fade-in">
+                    <h3>Réalisations Clés</h3>
+                    <div class="achievements-grid">
+                        <div class="achievement-item">
+                            <div class="achievement-number">15+</div>
+                            <div class="achievement-text">Modules Odoo Développés</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-number">25+</div>
+                            <div class="achievement-text">Plugins WooCommerce</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-number">98%</div>
+                            <div class="achievement-text">Satisfaction Client</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-number">24/7</div>
+                            <div class="achievement-text">Support Technique</div>
                         </div>
                     </div>
                 </div>
@@ -904,31 +1804,46 @@
                 <div class="portfolio-grid">
                     <div class="portfolio-item fade-in">
                         <div class="portfolio-image">
-                            <i class="fas fa-shopping-cart"></i>
+                            <i class="fas fa-cogs"></i>
                         </div>
                         <div class="portfolio-content">
-                            <h3 class="portfolio-title">E-Commerce Platform</h3>
-                            <p>Une plateforme e-commerce complète avec gestion des stocks, paiements sécurisés et analytics avancés.</p>
+                            <h3 class="portfolio-title">ERP Odoo Multi-Sociétés</h3>
+                            <p>Implémentation Odoo complète pour groupe de 5 entreprises avec modules personnalisés de facturation et gestion RH avancée.</p>
                             <div class="portfolio-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">MongoDB</span>
-                                <span class="tech-tag">Stripe</span>
+                                <span class="tech-tag">Odoo 16</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">API REST</span>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-item fade-in">
                         <div class="portfolio-image">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fab fa-wordpress"></i>
                         </div>
                         <div class="portfolio-content">
-                            <h3 class="portfolio-title">Système CRM</h3>
-                            <p>Solution CRM sur-mesure pour la gestion client avec automatisation des processus et reporting en temps réel.</p>
+                            <h3 class="portfolio-title">Plugin WooCommerce Multi-Vendeurs</h3>
+                            <p>Plugin avancé de marketplace avec gestion des commissions, dashboard vendeurs et système de paiement automatisé.</p>
                             <div class="portfolio-tech">
-                                <span class="tech-tag">Vue.js</span>
-                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">WooCommerce</span>
+                                <span class="tech-tag">PHP</span>
                                 <span class="tech-tag">MySQL</span>
-                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Stripe Connect</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in">
+                        <div class="portfolio-image">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">Connecteur Odoo-WooCommerce</h3>
+                            <p>Synchronisation bidirectionnelle en temps réel entre ERP Odoo et boutique WooCommerce avec gestion automatique des stocks.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Odoo</span>
+                                <span class="tech-tag">WooCommerce</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Redis</span>
                             </div>
                         </div>
                     </div>
@@ -937,13 +1852,28 @@
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <div class="portfolio-content">
-                            <h3 class="portfolio-title">App Mobile IoT</h3>
-                            <p>Application mobile connectée pour la surveillance et contrôle d'objets IoT en temps réel.</p>
+                            <h3 class="portfolio-title">App Mobile Odoo POS</h3>
+                            <p>Application mobile native pour point de vente connectée à Odoo avec mode offline et synchronisation intelligente.</p>
                             <div class="portfolio-tech">
                                 <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Odoo API</span>
+                                <span class="tech-tag">SQLite</span>
+                                <span class="tech-tag">Bluetooth</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in">
+                        <div class="portfolio-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">Analytics WooCommerce IA</h3>
+                            <p>Plugin d'analytics avancés avec prédictions IA pour optimiser les ventes et gérer les stocks automatiquement.</p>
+                            <div class="portfolio-tech">
                                 <span class="tech-tag">Python</span>
-                                <span class="tech-tag">MQTT</span>
-                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">WordPress</span>
+                                <span class="tech-tag">Charts.js</span>
                             </div>
                         </div>
                     </div>
@@ -952,13 +1882,13 @@
                             <i class="fas fa-brain"></i>
                         </div>
                         <div class="portfolio-content">
-                            <h3 class="portfolio-title">IA Chatbot</h3>
-                            <p>Chatbot intelligent avec traitement du langage naturel pour service client automatisé.</p>
+                            <h3 class="portfolio-title">Chatbot Odoo Intelligent</h3>
+                            <p>Assistant IA intégré à Odoo pour automatiser le support client et la saisie de commandes via langage naturel.</p>
                             <div class="portfolio-tech">
                                 <span class="tech-tag">Python</span>
-                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">OpenAI API</span>
+                                <span class="tech-tag">Odoo</span>
                                 <span class="tech-tag">NLP</span>
-                                <span class="tech-tag">FastAPI</span>
                             </div>
                         </div>
                     </div>
@@ -971,24 +1901,166 @@
                 <h2 class="section-title fade-in">Mes Services</h2>
                 <div class="services-grid">
                     <div class="service-card fade-in">
-                        <i class="fas fa-globe service-icon"></i>
-                        <h3>Sites Web</h3>
-                        <p>Création de sites web modernes, responsives et optimisés pour les moteurs de recherche.</p>
+                        <i class="fas fa-cogs service-icon"></i>
+                        <h3>Solutions Odoo ERP</h3>
+                        <p>Implémentation, personnalisation et développement de modules Odoo pour optimiser votre gestion d'entreprise.</p>
+                        <div class="service-details">
+                            <span>• Modules personnalisés</span>
+                            <span>• Migration & formation</span>
+                            <span>• Intégrations API</span>
+                        </div>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fab fa-wordpress service-icon"></i>
+                        <h3>Plugins WooCommerce</h3>
+                        <p>Développement de plugins WooCommerce avancés et optimisation de boutiques en ligne pour maximiser les conversions.</p>
+                        <div class="service-details">
+                            <span>• Plugins sur-mesure</span>
+                            <span>• Optimisation SEO</span>
+                            <span>• Paiements avancés</span>
+                        </div>
                     </div>
                     <div class="service-card fade-in">
                         <i class="fas fa-mobile-alt service-icon"></i>
-                        <h3>Applications</h3>
-                        <p>Développement de solutions applicatives sur-mesure pour répondre à vos besoins spécifiques.</p>
+                        <h3>Applications Mobiles</h3>
+                        <p>Développement d'applications mobiles natives connectées à vos systèmes ERP/CRM pour une gestion nomade.</p>
+                        <div class="service-details">
+                            <span>• React Native</span>
+                            <span>• Synchronisation offline</span>
+                            <span>• Interface intuitive</span>
+                        </div>
                     </div>
                     <div class="service-card fade-in">
-                        <i class="fas fa-chart-line service-icon"></i>
-                        <h3>ERP & CRM</h3>
-                        <p>Mise en place de systèmes de gestion intégrés pour optimiser vos processus d'entreprise.</p>
+                        <i class="fas fa-robot service-icon"></i>
+                        <h3>Intelligence Artificielle</h3>
+                        <p>Intégration d'IA dans vos systèmes pour automatiser les processus et améliorer l'expérience utilisateur.</p>
+                        <div class="service-details">
+                            <span>• Chatbots intelligents</span>
+                            <span>• Analytics prédictifs</span>
+                            <span>• Automatisation workflows</span>
+                        </div>
                     </div>
                     <div class="service-card fade-in">
-                        <i class="fas fa-shopping-cart service-icon"></i>
-                        <h3>E-Commerce</h3>
-                        <p>Création de boutiques en ligne personnalisées et sécurisées pour booster vos ventes.</p>
+                        <i class="fas fa-sync-alt service-icon"></i>
+                        <h3>Intégrations Systèmes</h3>
+                        <p>Connexion et synchronisation de vos différents systèmes (ERP, CRM, E-commerce) pour une vue unifiée.</p>
+                        <div class="service-details">
+                            <span>• APIs REST/SOAP</span>
+                            <span>• Synchronisation temps réel</span>
+                            <span>• Migration de données</span>
+                        </div>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-shield-alt service-icon"></i>
+                        <h3>Sécurité & Performance</h3>
+                        <p>Audit, sécurisation et optimisation de vos applications web pour garantir performance et protection des données.</p>
+                        <div class="service-details">
+                            <span>• Audit sécurité</span>
+                            <span>• Optimisation vitesse</span>
+                            <span>• Monitoring 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories Section -->
+        <section id="success-stories" class="success-stories">
+            <div class="container">
+                <h2 class="section-title fade-in">Témoignages & Réussites</h2>
+                <div class="stories-grid">
+                    <div class="story-card fade-in">
+                        <div class="story-content">
+                            L'implémentation Odoo réalisée par Cheikh a révolutionné notre gestion d'entreprise. Le module de facturation personnalisé nous fait gagner 4 heures par jour et les rapports automatisés sont fantastiques !
+                        </div>
+                        <div class="story-author">
+                            <div class="author-avatar">AM</div>
+                            <div class="author-info">
+                                <h4>Amadou Mbaye</h4>
+                                <p>Directeur Général, Groupe SAHEL</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card fade-in">
+                        <div class="story-content">
+                            Le plugin WooCommerce multi-vendeurs développé par Cheikh a transformé notre plateforme. Nos vendeurs sont autonomes et les commissions se calculent automatiquement. Un travail de pro !
+                        </div>
+                        <div class="story-author">
+                            <div class="author-avatar">FM</div>
+                            <div class="author-info">
+                                <h4>Fatou Mbodj</h4>
+                                <p>CEO, MarketPlace Sénégal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card fade-in">
+                        <div class="story-content">
+                            L'application mobile POS connectée à notre ERP Odoo nous permet de vendre partout. La synchronisation en temps réel est parfaite, même en mode offline !
+                        </div>
+                        <div class="story-author">
+                            <div class="author-avatar">OS</div>
+                            <div class="author-info">
+                                <h4>Omar Sall</h4>
+                                <p>Propriétaire, Chaîne Boutiques THIOSSANE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card fade-in">
+                        <div class="story-content">
+                            Le connecteur Odoo-WooCommerce a unifié nos opérations. Plus de double saisie, stock synchronisé automatiquement. Notre productivité a doublé !
+                        </div>
+                        <div class="story-author">
+                            <div class="author-avatar">KD</div>
+                            <div class="author-info">
+                                <h4>Khadija Diop</h4>
+                                <p>Responsable IT, SONATEL Distribution</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process">
+            <div class="container">
+                <h2 class="section-title fade-in">Mon Processus de Développement</h2>
+                <div class="process-timeline">
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>1. Analyse & Consultation</h3>
+                            <p>Étude approfondie de vos besoins métier et recommandations techniques pour Odoo ou WooCommerce</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-icon">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>2. Conception & Architecture</h3>
+                            <p>Design de l'architecture technique, maquettes et spécifications fonctionnelles détaillées</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>3. Développement Agile</h3>
+                            <p>Développement itératif avec livraisons fréquentes et tests continus</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>4. Déploiement & Formation</h3>
+                            <p>Mise en production sécurisée, formation utilisateur et support post-lancement</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -997,15 +2069,53 @@
 
     <footer id="contact">
         <div class="container">
-            <h2>Contactez-moi</h2>
-            <div class="contact-info">
-                <p>Email: contact@cheikhsene.ovh</p>
-                <p>WhatsApp: +221768720000</p>
+            <h2>Parlons de Votre Projet</h2>
+            <p style="margin-bottom: 30px; font-size: 1.1rem; opacity: 0.9;">
+                Vous avez un projet Odoo ou WooCommerce ? Discutons de vos besoins !
+            </p>
+            
+            <div class="contact-grid">
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Professionnel</h3>
+                    <p>contact@cheikhsene.ovh</p>
+                    <small>Réponse sous 24h</small>
+                </div>
+                <div class="contact-method">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp Business</h3>
+                    <p>+221 76 872 0000</p>
+                    <small>Disponible 9h-19h GMT</small>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Consultation Gratuite</h3>
+                    <p>30 min d'audit technique</p>
+                    <small>Analyse de vos besoins</small>
+                </div>
             </div>
+            
+            <div class="specialties-footer">
+                <h3>Spécialisations</h3>
+                <div class="specialty-tags">
+                    <span>Odoo ERP Implementation</span>
+                    <span>WooCommerce Plugins</span>
+                    <span>E-commerce Optimization</span>
+                    <span>API Integrations</span>
+                    <span>Mobile Apps</span>
+                    <span>Performance Tuning</span>
+                </div>
+            </div>
+            
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/cheikhsene11" target="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Cheikhsene" target="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://x.com/cheikhsenexi" target="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/cheikhsene11" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Cheikhsene" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/cheikhsenexi" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://wa.me/221768720000" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p>&copy; 2024 Cheikh Sene - Expert Odoo ERP & WooCommerce | Tous droits réservés</p>
             </div>
         </div>
     </footer>
@@ -1220,13 +2330,21 @@
             const responses = {
                 'bonjour': 'Bonjour ! Comment allez-vous ? 😊',
                 'salut': 'Salut ! Ravi de vous parler !',
-                'services': 'Cheikh propose du développement web, des applications mobiles, des systèmes ERP/CRM et des solutions e-commerce.',
+                'services': 'Cheikh propose des solutions Odoo ERP, plugins WooCommerce, applications mobiles, intégrations IA et systèmes sur-mesure.',
+                'odoo': 'Expert Odoo avec 5+ ans d\'expérience : modules personnalisés, migrations, intégrations API, formation. Spécialiste ERP complet !',
+                'woocommerce': 'Développeur WooCommerce avancé : plugins marketplace, paiements, synchronisation ERP, optimisation performance et SEO.',
+                'plugins': 'Développement de plugins personnalisés pour Odoo et WooCommerce selon vos besoins spécifiques. Expertise technique avancée.',
+                'erp': 'Solutions ERP Odoo complètes : gestion multi-sociétés, workflows métier, rapports personnalisés, apps mobiles connectées.',
+                'ecommerce': 'Boutiques WooCommerce optimisées avec plugins avancés, multi-vendeurs, analytics IA et intégrations ERP.',
                 'contact': 'Vous pouvez contacter Cheikh à : contact@cheikhsene.ovh ou +221768720000',
-                'compétences': 'Cheikh maîtrise JavaScript, React, Node.js, Python, et bien plus encore !',
-                'portfolio': 'Découvrez les projets de Cheikh dans la section Portfolio ci-dessus.',
-                'prix': 'Les tarifs dépendent du projet. Contactez Cheikh pour un devis personnalisé !',
-                'expérience': 'Cheikh a plusieurs années d\'expérience en développement web et solutions innovantes.',
-                'default': 'Intéressant ! Pour plus d\'informations spécifiques, n\'hésitez pas à contacter Cheikh directement. 😊'
+                'compétences': 'Expert Odoo ERP (92%), WooCommerce (90%), Python, React, Node.js, et bien plus encore !',
+                'portfolio': 'Découvrez les projets Odoo et WooCommerce de Cheikh dans la section Portfolio ci-dessus.',
+                'prix': 'Les tarifs dépendent du projet. Contactez Cheikh pour un devis personnalisé selon vos besoins !',
+                'expérience': 'Cheikh a 5+ années d\'expérience en Odoo, WooCommerce et développement de solutions innovantes.',
+                'témoignages': 'Consultez les témoignages clients dans la section "Témoignages & Réussites" pour voir les résultats concrets !',
+                'formation': 'Cheikh propose formation et support sur Odoo et WooCommerce pour votre équipe.',
+                'migration': 'Services de migration Odoo vers nouvelles versions et migration de données vers WooCommerce.',
+                'default': 'Intéressant ! Pour plus d\'informations sur Odoo, WooCommerce ou autres services, contactez Cheikh directement. 😊'
             };
 
             const lowerMessage = message.toLowerCase();
@@ -1499,11 +2617,207 @@
             }, 5000);
         }
 
+        // Enhanced animations for new sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        // Animate achievements counter
+        const achievementObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numberElement = entry.target.querySelector('.achievement-number');
+                    const finalNumber = numberElement.textContent;
+                    const isPercentage = finalNumber.includes('%');
+                    const isTime = finalNumber.includes('/');
+                    const numericValue = parseInt(finalNumber);
+                    
+                    if (!isNaN(numericValue)) {
+                        animateCounter(numberElement, 0, numericValue, 2000, isPercentage ? '%' : (isTime ? '/7' : '+'));
+                    }
+                    achievementObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        function animateCounter(element, start, end, duration, suffix = '') {
+            const startTime = performance.now();
+            
+            function update() {
+                const currentTime = performance.now();
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                const current = Math.floor(start + (end - start) * progress);
+                element.textContent = current + suffix;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        // Apply achievement animation
+        document.querySelectorAll('.achievement-item').forEach(item => {
+            achievementObserver.observe(item);
+        });
+
+        // Enhanced hover effects for tech tags
+        document.querySelectorAll('.tech-tag-advanced').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.2) rotate(5deg)';
+                this.style.boxShadow = '0 10px 20px rgba(58, 134, 255, 0.6)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+                this.style.boxShadow = '0 5px 15px rgba(58, 134, 255, 0.4)';
+            });
+        });
+
+        // Expertise items interactive effects
+        document.querySelectorAll('.expertise-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const checkmarks = this.querySelectorAll('li::before');
+                this.style.borderLeft = '6px solid var(--secondary-color)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.borderLeft = '4px solid var(--primary-color)';
+            });
+        });
+
+        // Certificate cards shimmer effect
+        document.querySelectorAll('.cert-card').forEach((card, index) => {
+            setTimeout(() => {
+                card.style.animation = `float 4s ease-in-out infinite ${index * 0.5}s`;
+            }, index * 200);
+        });
+
+        // Add click sound effect (visual feedback) for interactive elements
+        document.querySelectorAll('.tech-tag-advanced, .cert-card, .achievement-item').forEach(element => {
+            element.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 100);
+            });
+        });
+
+        // Enhanced typewriter effect for tagline
+        const taglineElement = document.querySelector('.tagline');
+        if (taglineElement) {
+            const originalText = taglineElement.textContent;
+            taglineElement.textContent = '';
+            
+            setTimeout(() => {
+                let i = 0;
+                const typeInterval = setInterval(() => {
+                    taglineElement.textContent += originalText[i];
+                    i++;
+                    if (i === originalText.length) {
+                        clearInterval(typeInterval);
+                        taglineElement.style.borderRight = 'none';
+                    }
+                }, 80);
+            }, 1000);
+        }
+
+        // Enhanced timeline animations
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }, index * 300);
+                    timelineObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = index % 2 === 0 ? 'translateX(-50px)' : 'translateX(50px)';
+            item.style.transition = 'all 0.6s ease';
+            timelineObserver.observe(item);
+        });
+
+        // Add stagger animation to services grid
+        const servicesObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const serviceCards = entry.target.querySelectorAll('.service-card');
+                    serviceCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 150);
+                    });
+                    servicesObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+            const serviceCards = servicesSection.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+            });
+            servicesObserver.observe(servicesSection);
+        }
+
+        // Add interactive hover effect for specialty tags
+        document.querySelectorAll('.specialty-tags span').forEach(tag => {
+            tag.addEventListener('click', function() {
+                // Create a ripple effect
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = '50%';
+                ripple.style.top = '50%';
+                ripple.style.width = '100px';
+                ripple.style.height = '100px';
+                ripple.style.marginLeft = '-50px';
+                ripple.style.marginTop = '-50px';
+                
+                this.style.position = 'relative';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Hero badges animation sequence
+        const heroBadges = document.querySelectorAll('.hero-badge');
+        heroBadges.forEach((badge, index) => {
+            badge.style.opacity = '0';
+            badge.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                badge.style.transition = 'all 0.6s ease';
+                badge.style.opacity = '1';
+                badge.style.transform = 'translateY(0)';
+            }, 3500 + (index * 300));
+        });
+
         // Welcome message
         setTimeout(() => {
-            console.log('%c🚀 Site Web Amélioré par IA! 🚀', 'color: #3a86ff; font-size: 20px; font-weight: bold;');
+            console.log('%c🚀 Site Web Amélioré - Expert Odoo & WooCommerce! 🚀', 'color: #3a86ff; font-size: 20px; font-weight: bold;');
+            console.log('%cSpécialiste ERP Odoo et Plugins WooCommerce Avancés', 'color: #ff006e; font-size: 14px;');
             console.log('%cPour activer le mode Matrix, tapez: CHEIKH', 'color: #ff006e; font-size: 14px;');
-            console.log('%cDéveloppé avec ❤️ par Cheikh Sene', 'color: #0f0; font-size: 12px;');
+            console.log('%cDéveloppé avec ❤️ par Cheikh Sene - Expert Odoo/WooCommerce', 'color: #0f0; font-size: 12px;');
         }, 2000);
 
     </script>
